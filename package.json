@@ -5,17 +5,21 @@
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
+	"build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js && node conv.js > index.dist.html",
     "lint": "eslint --ext .js,.jsx .",
     "deploy": "npm run clean & npm run build && surge -p .",
-    "start": "cross-env NODE_ENV=development node server.js"
+    "start": "cross-env NODE_ENV=development node server.js" 
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "async-regex-replace": "^2.0.0",
+    "cheerio": "^0.20.0",
+    "node-fetch": "^1.5.3",
     "normalize.css": "3.0.3",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
+    "request": "^2.72.0",
     "spectacle": "^1.0.0"
   },
   "devDependencies": {
